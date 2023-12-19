@@ -19,8 +19,10 @@ export const Layout = (props: Props) => {
         <ThemesProvider>
             <div className='relative h-screen'>
                 <SideBar />
+                <div>
                 <Header />
-                <div>{props.children}</div>
+                    
+                    {props.children}</div>
             </div>
         </ThemesProvider>
     )
