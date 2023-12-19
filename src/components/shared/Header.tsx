@@ -19,7 +19,7 @@ export const Header = (props: Props) => {
     }
 
     return (
-        <header className='p-5 bg-white dark:bg-transparent'>
+        <header className='p-5 bg-white duration-300 dark:bg-transparent'>
             <div className={`flex  justify-between items-center self-stretch transition-all duration-300 ${wide ? "ml-[264px]" : "ml-[96px]"}`}>
                 <h2>Home</h2>
                 <button
