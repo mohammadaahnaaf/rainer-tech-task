@@ -18,7 +18,6 @@ export const Header = (props: Props) => {
         }
     }
 
-
     return (
         <header className='p-5 bg-white dark:bg-transparent'>
             <div className={`flex  justify-between items-center self-stretch transition-all duration-300 ${wide ? "ml-[264px]" : "ml-[96px]"}`}>
@@ -30,8 +29,8 @@ export const Header = (props: Props) => {
                     <span className="sr-only">Use setting</span>
                     <span
                         aria-hidden="true"
-                        className={`${theme === "dark" ? 'translate-x-9 bg-black' : 'translate-x-0'}
-                          pointer-events-none items-center justify-center flex h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}>
+                        className={`${theme === "dark" ? 'bg-black translate-x-9 ' : 'bg-white translate-x-0'}
+                          pointer-events-none items-center justify-center flex h-[34px] w-[34px] transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out`}>
                         {theme === 'dark' ? (
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                 <path d="M7.02518 0.907571C7.12748 1.03187 7.19015 1.184 7.2051 1.34429C7.22004 1.50458 7.18657 1.66567 7.10902 1.80674C6.50314 2.91914 6.18673 4.16605 6.1889 5.43275C6.1889 9.64668 9.62417 13.0589 13.858 13.0589C14.4103 13.0589 14.9479 13.0013 15.4646 12.8912C15.6229 12.8569 15.7879 12.87 15.9389 12.9289C16.0898 12.9878 16.2201 13.0899 16.3134 13.2224C16.4119 13.3601 16.4621 13.5266 16.4563 13.6958C16.4504 13.8651 16.3888 14.0276 16.2809 14.1582C15.459 15.1679 14.4221 15.9814 13.2458 16.5394C12.0696 17.0975 10.7836 17.386 9.48165 17.3839C4.65046 17.3839 0.737305 13.4917 0.737305 8.69616C0.737305 5.08691 2.95273 1.99118 6.10715 0.679112C6.26429 0.612703 6.43872 0.599073 6.60426 0.640269C6.7698 0.681465 6.9175 0.775262 7.02518 0.907571ZM5.82839 1.99013C4.61546 2.64075 3.60147 3.60784 2.89418 4.78862C2.1869 5.9694 1.81274 7.31975 1.81148 8.69616C1.81148 12.909 5.24781 16.3213 9.48165 16.3213C10.4955 16.323 11.4997 16.1237 12.436 15.7348C13.3723 15.3458 14.2221 14.7751 14.9364 14.0555C14.5832 14.0995 14.2238 14.1215 13.858 14.1215C9.02683 14.1215 5.11472 10.2294 5.11472 5.4338C5.11472 4.2108 5.36833 3.0465 5.82839 1.99013Z" fill="white" />
