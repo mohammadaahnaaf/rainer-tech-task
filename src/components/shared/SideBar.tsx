@@ -4,19 +4,21 @@ import Link from 'next/link'
 import React from 'react'
 import { useDebounce } from '../hooks/useDebounce'
 
-type Props = {}
+type Props = {
+    openMenu: boolean
+    setOpenMenu: any
+}
 
 export const SideBar = (props: Props) => {
 
-    const [openMenu, setOpenMenu] = React.useState<boolean>(true)
-    const dOpenMenu = useDebounce<boolean>(openMenu, { delay: openMenu ? 300 : 0 });
+    const dOpenMenu = useDebounce<boolean>(props.openMenu, { delay: props.openMenu ? 300 : 0 });
 
     function handleMenu() {
-        setOpenMenu(!openMenu)
+        props.setOpenMenu(!props.openMenu)
     }
 
     return (
-        <div className={`absolute bg-[#FFF] dark:bg-[#2E1619] h-full transition-all duration-300 ${openMenu ? 'w-[264px]' : 'w-[96px]'
+        <div className={`absolute bg-[#FFF] dark:bg-[#2E1619] h-full transition-all duration-300 ${props.openMenu ? 'w-[264px]' : 'w-[96px]'
             }`}>
             <div className='h-full w-full p-[30px]'>
                 <div className='flex flex-col items-start gap-16'>
@@ -40,12 +42,12 @@ export const SideBar = (props: Props) => {
                     </button>
 
                     {/* side-bar icons  */}
-                    <div className={`flex flex-col items-start self-stretch ${openMenu ? "duration-300 gap-[20px]" : "duration-300 gap-[40px]"}`}>
+                    <div className={`flex flex-col items-start self-stretch ${props.openMenu ? "duration-300 gap-[20px]" : "duration-300 gap-[40px]"}`}>
                         {items.map((item: any, index: number) => (
 
-                            <div key={index} className={`w-full ${openMenu ? "" : "p-0"}`}>
+                            <div key={index} className={`w-full ${props.openMenu ? "" : "p-0"}`}>
                                 <div className='flex relative gap-8 justify-between items-center flex-1'>
-                                    <item.icon className={`text-black dark:text-white  ${openMenu ? "w-[36px] h-[36px] duration-300" : "w-[32px] h-[32px] duration-300"}`} />
+                                    <item.icon className={`text-black dark:text-white  ${props.openMenu ? "w-[36px] h-[36px] duration-300" : "w-[32px] h-[32px] duration-300"}`} />
                                     <h2 className={`focus:text-pink-500 text-[#2E1619] dark:text-[#D1D5DB] w-full text-base transition-all font-medium ${!!dOpenMenu ? "duration-300 opacity-100" : "duration-300 hidden opacity-0"}`}>{item.title}</h2>
                                     <Link href={item.link} className='absolute text-end w-full h-full' />
                                 </div>
