@@ -23,9 +23,9 @@ export const Header = (props: Props) => {
         setView(true)
     }, [])
 
-    return (
+    return view && (
         <header className='p-5 bg-white duration-300 dark:bg-transparent'>
-            <div className={`flex  justify-between items-center self-stretch transition-all duration-300 ${wide ? "ml-[264px]" : "ml-[96px]"}`}>
+            <div className={`flex  justify-between items-center self-stretch transition-all duration-300 ${wide ? "md:ml-[264px]" : "md:ml-[96px]"}`}>
                 <h2>Home</h2>
                 <button
                     onClick={handleTheme}

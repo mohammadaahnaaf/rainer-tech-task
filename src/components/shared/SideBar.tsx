@@ -18,7 +18,7 @@ export const SideBar = (props: Props) => {
     }
 
     return (
-        <div className={`absolute bg-[#FFF] dark:bg-[#2E1619] h-full transition-all duration-300 ${props.openMenu ? 'w-[264px]' : 'w-[96px]'
+        <div className={`absolute bg-[#FFF] dark:bg-[#2E1619] hidden md:block h-full transition-all duration-300 ${props.openMenu ? 'w-[264px]' : 'w-[96px]'
             }`}>
             <div className='h-full w-full p-[30px]'>
                 <div className='flex flex-col items-start gap-16'>
