@@ -437,14 +437,14 @@ export const Home = (props: Props) => {
           </div>
           <div className='grid grid-cols-2 items-center'>
             <CovidIcon className='' />
-            <div className='grid items-center bg-gradient-to-l rounded-md from-[#FF7C65] to-[#FF7590] justify-center gap-2 w-full text-center'>
+            <div className='grid items-center py-1 bg-gradient-to-l rounded-md from-[#FF7C65] to-[#FF7590] justify-center gap-2 w-full text-center'>
               <div>
                 <h1>Infection Number</h1>
-                <h1 className='font-poppins text-[38.407px] font-medium leading-[140%]'>500</h1>
+                <h1 className='font-poppins text-3xl md:text-5xl font-medium leading-[140%]'>500</h1>
               </div>
               <div>
                 <h1>Infection Rate</h1>
-                <h1 className='font-poppins text-[38.407px] font-medium leading-[140%]'>10%</h1>
+                <h1 className='font-poppins text-3xl md:text-5xl font-medium leading-[140%]'>10%</h1>
               </div>
             </div>
           </div>

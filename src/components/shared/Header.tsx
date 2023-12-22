@@ -3,6 +3,9 @@ import React from 'react'
 
 type Props = {
     wide: boolean
+    setMenuOpen: any
+    menuOpen: boolean
+    setOpenMenu: any
 }
 
 export const Header = (props: Props) => {
@@ -23,13 +26,27 @@ export const Header = (props: Props) => {
         setView(true)
     }, [])
 
+    function handleMobileMenu() {
+        props.setMenuOpen(!props.menuOpen)
+        props.setOpenMenu(true)
+    }
+
     return view && (
         <header className='p-5 bg-white duration-300 dark:bg-transparent'>
             <div className={`flex  justify-between items-center self-stretch transition-all duration-300 ${wide ? "md:ml-[264px]" : "md:ml-[96px]"}`}>
-                <h2>Home</h2>
+                <div className='flex items-center gap-2'>
+                    <button className='block md:hidden' type='button' onClick={handleMobileMenu}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className='' width="29" height="28" viewBox="0 0 29 28" fill="currentColor">
+                            <path d="M4 21H25" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4 14H25" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4 7H25" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <h2 className='text-lg'>Home</h2>
+                </div>
                 <button
                     onClick={handleTheme}
-                    className={`${theme === "dark" ? 'bg-white' : 'bg-gray-200'}
+                    className={`${theme === "dark" ? 'bg-white' : 'bg-gray-300'}
                         relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-[#FDDAD6] transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}>
                     {theme === 'dark' ? (
                         <span className={`${theme === "dark" ? 'bg-black translate-x-9 ' : 'bg-white translate-x-0'}
