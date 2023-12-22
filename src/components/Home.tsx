@@ -1,5 +1,6 @@
 import { todos } from '@rainer/data'
 import React from 'react'
+import { CovidIcon } from '.'
 
 type Props = {}
 
@@ -275,7 +276,7 @@ export const Home = (props: Props) => {
         </div>
 
         {/* todo-list  */}
-        <div className='rounded-md hidden bg-[#FFFFFF1A] py-[18px] md:grid gap-4 pl-[19px] pr-[30px] max-w-[718px] ring-2 shadow-lg dark:ring-gray-700 ring-gray-200'>
+        <div className='rounded-md bg-[#FFFFFF1A] py-[18px] hidden xl:grid gap-4 pl-[19px] pr-[30px] max-w-[718px] ring-2 shadow-lg dark:ring-gray-700 ring-gray-200'>
 
           <div className='flex gap-5'>
             <textarea className='w-full ring-1 ring-gray-200 rounded-lg p-2' name="" id="" rows={3} />
@@ -309,81 +310,114 @@ export const Home = (props: Props) => {
 
       </div>
 
-      <div className='grid gap-5  p-5 col-span-5 xl:col-span-2 xl:justify-start justify-center w-full'>
+      <div className='grid gap-5 grid-cols-2 xl:grid-cols-1 p-5 col-span-5 xl:col-span-2 xl:justify-start justify-center w-full'>
+    
+        {/* todo-list  */}
+        <div className='rounded-md col-span-2 md:col-span-1 xl:hidden bg-[#FFFFFF1A] py-[18px] grid gap-4 pl-[19px] pr-[30px] max-w-[718px] ring-2 shadow-lg dark:ring-gray-700 ring-gray-200'>
 
+          <div className='flex gap-5'>
+            <textarea className='w-full ring-1 ring-gray-200 rounded-lg p-2' name="" id="" rows={3} />
+            <button className='bg-gradient-to-r h-[32px] rounded-md w-[83px] text-sm from-[rgba(255,117,148,1)] to-[rgba(255,124,101,1)]'>Add</button>
+          </div>
+
+          <div className='flex justify-between items-start'>
+            <div className='flex items-center gap-[16px]'>
+              <input id='select-all' name='select-all' className="w-6 h-6 accent-pink-500 border-none outline-none ring-0 rounded" type="checkbox" />
+              <label className='text-sm' htmlFor='select-all'>Select All</label>
+            </div>
+            <button className='bg-gradient-to-r text-sm h-[32px] rounded-md w-[83px] from-[rgba(255,117,148,1)] to-[rgba(255,124,101,1)]'>Done</button>
+          </div>
+
+          <div className='grid gap-4 mb-10'>
+            {todos.map((x: any, index: number) => {
+              // let isDone = false
+              return (
+                <div key={index} className='flex items-center gap-[16px]'>
+                  <input id='select-all' name='select-all' checked={x.done} className={`w-6 h-6 ${!!x.done ? "accent-pink-400" : "accent-gray-400"}  border-none outline-none ring-0 rounded`} type="checkbox" />
+                  <label className='text-sm hidden' htmlFor='select-all'></label>
+                  <div className='grid xl:flex gap-2 xl:gap-6 text-sm w-full'>
+                    <p className='#D1D5DB'>{x.title}</p>
+                    <p className='text-[#A6A6A6]'>Last Added: {x.date}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+    
         {/* upcomming-appoinstments  */}
-        <div className='p-4 ring-2 xl:max-w-[450px] ring-gray-200 dark:ring-[#FDDAD6] rounded-lg dark:bg-white dark:bg-opacity-10'>
-      
+        <div className='p-4 ring-2 col-span-2 md:col-span-1 xl:max-w-[500px] dark:ring-gray-700 ring-[#FDDAD6] rounded-lg dark:bg-white dark:bg-opacity-10'>
+
           <h1 className='pb-2'>Upcomming Appoinstments</h1>
 
-          {/* doctor-list  */}
+          {/* appointments  */}
           <div className='gap-3 grid'>
-            <div className='flex items-center gap-4 ring-2 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
-              <div className='rounded-xl bg-white text-center py-5 px-3 dark:text-black'>
-                <p className='text-[#384449] font-poppins text-sm font-medium'>2023</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>12</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>Sept</p>
-              </div>
-              <div className='grid gap-2'>
-                <h1 className='dark:text-white font-poppins text-lg font-medium'>
-                  Dr. Mohammad Abdul Hussein
-                </h1>
-                <p className='dark:text-white font-poppins text-sm font-normal'>Cardiologist</p>
-                <div className='flex gap-6 items-center'>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
-                </div>
-              </div>
-            </div>
 
-            <div className='flex items-center gap-4 ring-2 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
-              <div className='rounded-xl bg-white text-center py-5 px-3 dark:text-black'>
+            <div className='flex items-center gap-4 ring-1 rounded-xl ring-[#FDDAD6]  bg-pink-100 dark:bg-white dark:bg-opacity-10'>
+              <div className='rounded-xl bg-white text-center py-4 px-3 dark:text-black'>
                 <p className='text-[#384449] font-poppins text-sm font-medium'>2023</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>12</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>Sept</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>12</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>Sept</p>
               </div>
               <div className='grid gap-2'>
-                <h1 className='dark:text-white font-poppins text-lg font-medium'>
+                <h1 className='dark:text-white font-poppins text-md xl:text-lg font-normal'>
                   Dr. Mohammad Abdul Hussein
                 </h1>
                 <p className='dark:text-white font-poppins text-sm font-normal'>Cardiologist</p>
                 <div className='flex gap-6 items-center'>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
                 </div>
               </div>
             </div>
-            <div className='flex items-center gap-4 ring-2 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
-              <div className='rounded-xl bg-white text-center py-5 px-3 dark:text-black'>
+            <div className='flex items-center gap-4 ring-1 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
+              <div className='rounded-xl bg-white text-center py-4 px-3 dark:text-black'>
                 <p className='text-[#384449] font-poppins text-sm font-medium'>2023</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>12</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>Sept</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>12</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>Sept</p>
               </div>
               <div className='grid gap-2'>
-                <h1 className='dark:text-white font-poppins text-lg font-medium'>
+                <h1 className='dark:text-white font-poppins text-md xl:text-lg font-normal'>
                   Dr. Mohammad Abdul Hussein
                 </h1>
                 <p className='dark:text-white font-poppins text-sm font-normal'>Cardiologist</p>
                 <div className='flex gap-6 items-center'>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
                 </div>
               </div>
             </div>
-            <div className='flex items-center gap-4 ring-2 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
-              <div className='rounded-xl bg-white text-center py-5 px-3 dark:text-black'>
+            <div className='flex items-center gap-4 ring-1 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
+              <div className='rounded-xl bg-white text-center py-4 px-3 dark:text-black'>
                 <p className='text-[#384449] font-poppins text-sm font-medium'>2023</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>12</p>
-                <p className='text-[#384449] font-inter text-lg font-semibold'>Sept</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>12</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>Sept</p>
               </div>
               <div className='grid gap-2'>
-                <h1 className='dark:text-white font-poppins text-lg font-medium'>
+                <h1 className='dark:text-white font-poppins text-md xl:text-lg font-normal'>
                   Dr. Mohammad Abdul Hussein
                 </h1>
                 <p className='dark:text-white font-poppins text-sm font-normal'>Cardiologist</p>
                 <div className='flex gap-6 items-center'>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
-                  <p className='text-[#8A8686] bg-white rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
+                </div>
+              </div>
+            </div>
+            <div className='flex items-center gap-4 ring-1 rounded-xl ring-[#FDDAD6] bg-pink-100 dark:bg-white dark:bg-opacity-10'>
+              <div className='rounded-xl bg-white text-center py-4 px-3 dark:text-black'>
+                <p className='text-[#384449] font-poppins text-sm font-medium'>2023</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>12</p>
+                <p className='text-[#384449] font-inter text-md font-semibold'>Sept</p>
+              </div>
+              <div className='grid gap-2'>
+                <h1 className='dark:text-white font-poppins text-md xl:text-lg font-normal'>
+                  Dr. Mohammad Abdul Hussein
+                </h1>
+                <p className='dark:text-white font-poppins text-sm font-normal'>Cardiologist</p>
+                <div className='flex gap-6 items-center'>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Slot <span className='text-black'>Morning</span></p>
+                  <p className='text-[#8A8686] bg-white text-xs rounded-md px-3 py-1'>Time <span className='text-black'>10:00 AM</span></p>
                 </div>
               </div>
             </div>
@@ -392,7 +426,29 @@ export const Home = (props: Props) => {
         </div>
 
         {/* covid-19-updates */}
-        <div></div>
+        <div className=' dark:bg-white ring-2 col-span-2 xl:col-span-1 dark:ring-gray-700 ring-[#FDDAD6] xl:max-w-[500px] dark:bg-opacity-10 rounded-md w-full p-5'>
+          <div className='flex items-start justify-between'>
+            <h2 className='text-sm'>Covid-19 Updates</h2>
+            <h2 className='grid text-end text-sm'>10 Sept 2023
+              <span>
+                Friday 10:00:00 AM
+              </span>
+            </h2>
+          </div>
+          <div className='grid grid-cols-2 items-center'>
+            <CovidIcon className='' />
+            <div className='grid items-center bg-gradient-to-l rounded-md from-[#FF7C65] to-[#FF7590] justify-center gap-2 w-full text-center'>
+              <div>
+                <h1>Infection Number</h1>
+                <h1 className='font-poppins text-[38.407px] font-medium leading-[140%]'>500</h1>
+              </div>
+              <div>
+                <h1>Infection Rate</h1>
+                <h1 className='font-poppins text-[38.407px] font-medium leading-[140%]'>10%</h1>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
